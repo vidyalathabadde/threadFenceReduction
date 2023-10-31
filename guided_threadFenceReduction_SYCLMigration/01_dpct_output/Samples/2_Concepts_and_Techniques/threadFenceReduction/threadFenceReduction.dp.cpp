@@ -125,7 +125,7 @@ int main(int argc, char **argv) {
 
   printf("%s Starting...\n\n", sSDKsample);
 
-//  dev = findCudaDevice(argc, (const char **)argv);
+  dev = findCudaDevice(argc, (const char **)argv);
 
   checkCudaErrors(DPCT_CHECK_ERROR(dpct::get_device_info(
       deviceProp, dpct::dev_mgr::instance().get_device(dev))));
