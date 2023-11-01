@@ -17,8 +17,8 @@ This sample contains two versions in the following folders:
 
 | Folder Name                   | Description
 |:---                           |:---
-| `01_dpct_output`              | Contains output of SYCLomatic Tool used to migrate SYCL-compliant code from CUDA code. This SYCL code has some unmigrated code that has to be manually fixed to get full functionality. (The code does not functionally work as supplied.)
-| `02_sycl_migrated`            | Contains fully migrated sycl code with some minor changes
+| `01_dpct_output`              | Contains the output of SYCLomatic Tool which is a fully migrated version of CUDA code.
+| `02_sycl_migrated`            | Contains the output of SYCLomatic Tool with replacing findCudaDevice.
 
 ### Workflow For CUDA to SYCL migration
 
