@@ -43,7 +43,7 @@ This sample is migrated from NVIDIA CUDA sample. See the [threadFenceReduction](
 
 | Optimized for              | Description
 |:---                        |:---
-| OS                         | Ubuntu* 20.04
+| OS                         | Ubuntu* 22.04
 | Hardware              | Intel® Gen9 <br> Intel® Gen11 <br> Intel® Xeon CPU <br> Intel® Data Center GPU Max <br> NVIDIA Tesla P100 <br> NVIDIA A100 <br> NVIDIA H100
 | Software                | SYCLomatic (Tag - 20231004) <br> Intel® oneAPI Base Toolkit version 2023.2.1 <br> oneAPI for NVIDIA GPUs" plugin from Codeplay
 
