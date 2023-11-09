@@ -27,16 +27,7 @@ Refer [Workflow](https://www.intel.com/content/www/us/en/developer/tools/oneapi/
 
 ### CUDA source code evaluation
 
-This code performs sum reductions, but any associative operator such as min() or max() could also be used. It shows how to perform a reduction operation on an array of values to produce a single value in a Single-pass reduction kernel which requires global atomic instructions and the __threadfence() intrinsic. The benchmarkReduce function performs a reduction of the input data multiple times and measures the average reduction time. There are various arguments you can experiment it while running the executable <br>
-COMMAND LINE ARGUMENTS
-
-  --shmoo:         Test performance for 1 to 32M elements with each of the 7 different kernels <br>
-  --n=<N>:         Specify the number of elements to reduce (default 1048576) <br>
-  --threads=<N>:   Specify the number of threads per block (default 128) <br>
-  --maxblocks=<N>: Specify the maximum number of thread blocks to launch (kernel 6 only, default 64) <br>
-  --cpufinal:      Read back the per-block results and do final sum of block sums on CPU (default false) <br>
-  --cputhresh=<N>: The threshold of number of blocks sums below which to perform a CPU final reduction (default 1) <br>
-  --multipass:     Use a multipass reduction instead of a single-pass reduction
+This code performs sum reductions, but any associative operator such as min() or max() could also be used. It shows how to perform a reduction operation on an array of values to produce a single value in a Single-pass reduction kernel which requires global atomic instructions and the __threadfence() intrinsic. The benchmarkReduce function performs a reduction of the input data multiple times and measures the average reduction time. There are various arguments you can experiment it while running the executable.
 
 This sample is migrated from NVIDIA CUDA sample. See the [threadFenceReduction](https://github.com/NVIDIA/cuda-samples/tree/master/Samples/2_Concepts_and_Techniques/threadFenceReduction) sample in the NVIDIA/cuda-samples GitHub.
 
@@ -127,7 +118,21 @@ Since its a custom API SYCLomatic tool will not act on it and we can either remo
    make run_sm
    unset ONEAPI_DEVICE_SELECTOR 
    ```
-   
+5. Running the executable with command line arguments
+   ```
+   --shmoo:         Test performance for 1 to 32M elements with each of the 7 different kernels <br>
+  --n=<N>:         Specify the number of elements to reduce (default 1048576) <br>
+  --threads=<N>:   Specify the number of threads per block (default 128) <br>
+  --maxblocks=<N>: Specify the maximum number of thread blocks to launch (kernel 6 only, default 64) <br>
+  --cpufinal:      Read back the per-block results and do final sum of block sums on CPU (default false) <br>
+  --cputhresh=<N>: The threshold of number of blocks sums below which to perform a CPU final reduction (default 1) <br>
+  --multipass:     Use a multipass reduction instead of a single-pass reduction
+  ```
+  For example, to change the number of elements to reduce using the comment line argument.
+  ```
+  ./bin/02_sycl_migrated --n=2097152 
+  ```
+  
 #### Troubleshooting
 
 If an error occurs, you can get more details by running `make` with
