@@ -137,27 +137,8 @@ make VERBOSE=1
 ```
 If you receive an error message, troubleshoot the problem using the **Diagnostics Utility for Intel® oneAPI Toolkits**. The diagnostic utility provides configuration and system checks to help find missing dependencies, permissions errors, and other issues. See the [Diagnostics Utility for Intel® oneAPI Toolkits User Guide](https://www.intel.com/content/www/us/en/develop/documentation/diagnostic-utility-user-guide/top.html) for more information on using the utility.
 
-
-### Example Output
-
-The following example is for `02_sycl_migrated` for GPU on **Intel(R) UHD Graphics P630 [0x3e96]**.
-```
-threadFenceReduction Starting...
-
-GPU Device supports SM 1.3 compute capability
-
-1048576 elements
-128 threads (max)
-64 blocks
-Average time: 0.276830 ms
-Bandwidth:    15.151191 GB/s
-
-GPU result = 0.062298238277
-CPU result = 0.062298364937.
-```
 ## License
 Code samples are licensed under the MIT license. See
 [License.txt](https://github.com/oneapi-src/oneAPI-samples/blob/master/License.txt) for details.
 
 Third party program licenses are at [third-party-programs.txt](https://github.com/oneapi-src/oneAPI-samples/blob/master/third-party-programs.txt).
-
