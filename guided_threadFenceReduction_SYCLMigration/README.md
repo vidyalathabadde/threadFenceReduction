@@ -121,17 +121,17 @@ Since its a custom API SYCLomatic tool will not act on it and we can either remo
 5. Running the executable with command line arguments
    ```
    --shmoo:         Test performance for 1 to 32M elements with each of the 7 different kernels <br>
-  --n=<N>:         Specify the number of elements to reduce (default 1048576) <br>
-  --threads=<N>:   Specify the number of threads per block (default 128) <br>
-  --maxblocks=<N>: Specify the maximum number of thread blocks to launch (kernel 6 only, default 64) <br>
-  --cpufinal:      Read back the per-block results and do final sum of block sums on CPU (default false) <br>
-  --cputhresh=<N>: The threshold of number of blocks sums below which to perform a CPU final reduction (default 1) <br>
-  --multipass:     Use a multipass reduction instead of a single-pass reduction
-  ```
-  For example, to change the number of elements to reduce using the comment line argument.
-  ```
-  ./bin/02_sycl_migrated --n=2097152 
-  ```
+   --n=<N>:         Specify the number of elements to reduce (default 1048576) <br>
+   --threads=<N>:   Specify the number of threads per block (default 128) <br>
+   --maxblocks=<N>: Specify the maximum number of thread blocks to launch (kernel 6 only, default 64) <br>
+   --cpufinal:      Read back the per-block results and do final sum of block sums on CPU (default false) <br>
+   --cputhresh=<N>: The threshold of number of blocks sums below which to perform a CPU final reduction (default 1) <br>
+   --multipass:     Use a multipass reduction instead of a single-pass reduction
+   ```
+    For example, to change the number of elements to reduce using the comment line argument.
+    ```
+     ./bin/02_sycl_migrated --n=2097152 
+    ```
   
 #### Troubleshooting
 
