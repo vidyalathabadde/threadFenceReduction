@@ -1,6 +1,6 @@
 ﻿# `ThreadFenceReduction` Sample
 
-Reductions are a very common computation in parallel algorithms.  Any time an array of values needs to be reduced to a single value using a binary associative operator, a reduction can be used. This `ThreadFenceReduction` sample implements a reduction kernel that reduces an arbitrary size array.
+Reductions are a very common computation in parallel algorithms.  Any time an array of values needs to be reduced to a single value using a binary associative operator, a reduction can be used. This `ThreadFenceReduction` sample implements a reduction kernel that reduces an arbitrary size array. The original CUDA* source code is migrated to SYCL for portability across GPUs from multiple vendors.
  
 | Property                  | Description
 |:---                       |:---
