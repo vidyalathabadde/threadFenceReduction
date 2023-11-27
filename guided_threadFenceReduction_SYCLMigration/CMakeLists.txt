@@ -19,6 +19,6 @@ option (BUILD_SYCL_MIGRATED_SUBPROJECT "Build targets from subproject 02_sycl_mi
 if (BUILD_SYCL_MIGRATED_SUBPROJECT)
 	add_subdirectory (01_dpct_output)
 endif ()
-if (BUILD_SYCL_MIGRATED_OPTIMIZED_SUBPROJECT)
+if (BUILD_SYCL_MIGRATED_SUBPROJECT)
         add_subdirectory (02_sycl_migrated)
 endif ()
