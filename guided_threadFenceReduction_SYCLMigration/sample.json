@@ -1,8 +1,8 @@
 {
   "guid": "9B936C49-3AF8-444B-865E-1395C636AE54",
   "name": "threadFenceReduction",
-  "categories": ["Toolkit/oneAPI-samples/DirectProgramming/C++SYCL/MapReduce"],
-  "description": "Implements Niederreiter Quasirandom Sequence Generator and Inverse Cumulative Normal Distribution functions for the generation of Standard Normal Distributions.",
+  "categories": ["Toolkit/oneAPI-samples/DirectProgramming/C++SYCL/"],
+  "description": "Implements .",
   "toolchain": [ "dpcpp" ],
   "languages": [ { "cpp": {} } ],
   "targetDevice": [ "CPU", "GPU" ],
@@ -15,7 +15,6 @@
                         "cd build",
                         "cmake ..",
                         "make",
-                        "make run",
                         "make run_sm"
                  
                  ]
