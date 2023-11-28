@@ -1,8 +1,8 @@
 {
-  "guid": "9B936C49-3AF8-444B-865E-1395C636AE54",
+  "guid": "242B2FEF-E50E-4420-8FEE-64DAE3030F77",
   "name": "threadFenceReduction",
   "categories": ["Toolkit/oneAPI-samples/DirectProgramming/C++SYCL/"],
-  "description": "Implements .",
+  "description": "Implements a reduction operation on an array of values using the sycl::atomic_fence function to produce a single value in a single kernel.",
   "toolchain": [ "dpcpp" ],
   "languages": [ { "cpp": {} } ],
   "targetDevice": [ "CPU", "GPU" ],
@@ -21,5 +21,5 @@
         }]
 
   },
-  "expertise": "Code Optimization"
+  "expertise": "Concepts and Functionality"
 }
