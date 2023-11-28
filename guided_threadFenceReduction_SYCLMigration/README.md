@@ -37,7 +37,7 @@ This sample is migrated from NVIDIA CUDA sample. See the [threadFenceReduction](
 |:---                        |:---
 | OS                         | Ubuntu* 22.04
 | Hardware              | Intel® Gen9 <br> Intel® Gen11 <br> Intel® Xeon CPU <br> Intel® Data Center GPU Max <br> NVIDIA Tesla P100 <br> NVIDIA A100 <br> NVIDIA H100
-| Software                | SYCLomatic (Tag - 20231004) <br> Intel® oneAPI Base Toolkit version 2023.2.1 <br> oneAPI for NVIDIA GPUs" plugin from Codeplay
+| Software                | SYCLomatic (Tag - 20231004) <br> Intel® oneAPI Base Toolkit version 2024.0.0 <br> oneAPI for NVIDIA GPUs" plugin from Codeplay
 
 For more information on how to install Syclomatic Tool & DPC++ CUDA® plugin, visit [Migrate from CUDA* to C++ with SYCL*](https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/migrate-from-cuda-to-cpp-with-sycl.html#gs.v354cy) <br> How to run SYCL™ applications on NVIDIA® GPUs, refer to oneAPI for NVIDIA GPUs plugin from Codeplay [Install oneAPI for NVIDIA GPUs](https://developer.codeplay.com/products/oneapi/nvidia/)
 
@@ -92,21 +92,9 @@ Since its a custom API SYCLomatic tool will not act on it and we can either remo
    $ make
    ```
 
-   By default, this command sequence will build the `01_dpct_output`, `02_sycl_migrated` versions of the program.
+   By default, this command sequence will build the `02_sycl_migrated` versions of the program.
 
 3. Run the program.
-   
-   Run `01_dpct_output` on GPU.
-   ```
-   make run
-   ```  
-   Run `01_dpct_output` on CPU.
-   ```
-   export ONEAPI_DEVICE_SELECTOR=cpu
-   make run
-   unset ONEAPI_DEVICE_SELECTOR 
-   ```
-4. Run the program.
    
    Run `02_sycl_migrated` on GPU.
    ```
@@ -140,7 +128,7 @@ the `VERBOSE=1` argument:
 ```
 make VERBOSE=1
 ```
-If you receive an error message, troubleshoot the problem using the **Diagnostics Utility for Intel® oneAPI Toolkits**. The diagnostic utility provides configuration and system checks to help find missing dependencies, permissions errors, and other issues. See the [Diagnostics Utility for Intel® oneAPI Toolkits User Guide](https://www.intel.com/content/www/us/en/develop/documentation/diagnostic-utility-user-guide/top.html) for more information on using the utility.
+If you receive an error message, troubleshoot the problem using the **Diagnostics Utility for Intel® oneAPI Toolkits**. The diagnostic utility provides configuration and system checks to help find missing dependencies, permissions errors, and other issues. See the [Diagnostics Utility for Intel® oneAPI Toolkits User Guide](https://www.intel.com/content/www/us/en/docs/oneapi/user-guide-diagnostic-utility/2024-0/overview.html) for more information on using the utility.
 
 ## License
 Code samples are licensed under the MIT license. See
