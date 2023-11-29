@@ -18,18 +18,8 @@ This sample contains two versions in the following folders:
 
 | Folder Name                   | Description
 |:---                           |:---
-| `01_dpct_output`              | Contains the output of SYCLomatic Tool which is a fully migrated version of CUDA code.
-| `02_sycl_migrated`            | Contains the output of SYCLomatic Tool with replacing findCudaDevice.
-
-### Workflow For CUDA to SYCL migration
-
-Refer [Workflow](https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/cuda-sycl-migration-workflow.html#gs.s2njvh) for details.
-
-### CUDA source code evaluation
-
-This code performs sum reductions, but any associative operator such as min() or max() could also be used. It shows how to perform a reduction operation on an array of values to produce a single value in a Single-pass reduction kernel which requires global atomic instructions and the __threadfence() intrinsic. The benchmarkReduce function performs a reduction of the input data multiple times and measures the average reduction time. There are various arguments you can experiment it while running the executable.
-
-This sample is migrated from NVIDIA CUDA sample. See the [threadFenceReduction](https://github.com/NVIDIA/cuda-samples/tree/master/Samples/2_Concepts_and_Techniques/threadFenceReduction) sample in the NVIDIA/cuda-samples GitHub.
+| `01_dpct_output`              | Contains the output of the SYCLomatic tool used to migrate SYCL-compliant code from CUDA code. The tool completely migrates code but needs manual changes to get functional correctness on the given list of hardware.
+| `02_sycl_migrated`            | Contains migrated SYCL code from CUDA code with manual changes.
 
 ## Prerequisites
 
@@ -48,19 +38,21 @@ This sample demonstrates the migration of the following prominent CUDA feature:
 - Data-Parallel Algorithms
 - Performance Strategies
 
-## Build the `ThreadFenceReduction` Sample for CPU and GPU
+>  **Note**: Refer to [Workflow for a CUDA* to SYCL* Migration](https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/cuda-sycl-migration-workflow.html#gs.s2njvh) for general information about the migration workflow.
 
-> **Note**: If you have not already done so, set up your CLI
-> environment by sourcing  the `setvars` script in the root of your oneAPI installation.
->
-> Linux*:
-> - For system wide installations: `. /opt/intel/oneapi/setvars.sh`
-> - For private installations: ` . ~/intel/oneapi/setvars.sh`
-> - For non-POSIX shells, like csh, use the following command: `bash -c 'source <install-dir>/setvars.sh ; exec csh'`
->
-> For more information on configuring environment variables, see [Use the setvars Script with Linux* or macOS*](https://www.intel.com/content/www/us/en/develop/documentation/oneapi-programming-guide/top/oneapi-development-environment-setup/use-the-setvars-script-with-linux-or-macos.html).
+### CUDA source code evaluation
 
-## Tool assisted migration – SYCLomatic 
+This code performs sum reductions, but any associative operator such as min() or max() could also be used. It shows how to perform a reduction operation on an array of values to produce a single value in a Single-pass reduction kernel which requires global atomic instructions and the __threadfence() intrinsic. The benchmarkReduce function performs a reduction of the input data multiple times and measures the average reduction time. There are various arguments you can experiment it while running the executable.
+
+This sample is migrated from NVIDIA CUDA sample. See the [threadFenceReduction](https://github.com/NVIDIA/cuda-samples/tree/master/Samples/2_Concepts_and_Techniques/threadFenceReduction) sample in the NVIDIA/cuda-samples GitHub.
+
+## Set Environment Variables
+
+When working with the command-line interface (CLI), you should configure the oneAPI toolkits using environment variables. Set up your CLI environment by sourcing the `setvars` script every time you open a new terminal window. This practice ensures that your compiler, libraries, and tools are ready for development.
+
+## Migrate the `threadFence Reduction` Sample
+
+### Migrate the Code using SYCLomatic
 
 For this sample, the SYCLomatic Tool automatically migrates 100% of the CUDA code to SYCL. Follow these steps to generate the SYCL code using the compatibility tool:
 
@@ -81,6 +73,19 @@ CUDA code includes a custom API findCUDADevice in helper_cuda file to find the b
  findCudaDevice (argc, (const char **) argv);   
 ```
 Since its a custom API SYCLomatic tool will not act on it and we can either remove it or replace it with the sycl get_device() API.
+
+## Build the `ThreadFenceReduction` Sample for CPU and GPU
+
+> **Note**: If you have not already done so, set up your CLI
+> environment by sourcing  the `setvars` script in the root of your oneAPI installation.
+>
+> Linux*:
+> - For system wide installations: `. /opt/intel/oneapi/setvars.sh`
+> - For private installations: ` . ~/intel/oneapi/setvars.sh`
+> - For non-POSIX shells, like csh, use the following command: `bash -c 'source <install-dir>/setvars.sh ; exec csh'`
+>
+> For more information on configuring environment variables, see [Use the setvars Script with Linux* or macOS*](https://www.intel.com/content/www/us/en/develop/documentation/oneapi-programming-guide/top/oneapi-development-environment-setup/use-the-setvars-script-with-linux-or-macos.html).
+
 ### On Linux*
 
 1. Change to the sample directory.
@@ -98,12 +103,12 @@ Since its a custom API SYCLomatic tool will not act on it and we can either remo
    
    Run `02_sycl_migrated` on GPU.
    ```
-   make run_sm
+   make run
    ```  
    Run `02_sycl_migrated` on CPU.
    ```
    export ONEAPI_DEVICE_SELECTOR=cpu
-   make run_sm
+   make run
    unset ONEAPI_DEVICE_SELECTOR 
    ```
 5. Running the executable with command line arguments
