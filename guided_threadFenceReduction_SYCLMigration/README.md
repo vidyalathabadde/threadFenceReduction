@@ -67,7 +67,7 @@ For this sample, the SYCLomatic Tool automatically migrates 100% of the CUDA cod
    ```
    c2s -p compile_commands.json --in-root ../../.. --gen-helper-function
    ```
-#### Manual Workaround
+### Manual Workaround
 CUDA code includes a custom API findCUDADevice in helper_cuda file to find the best CUDA Device available
 ```
  findCudaDevice (argc, (const char **) argv);   
@@ -107,7 +107,7 @@ Since its a custom API SYCLomatic tool will not act on it and we can either remo
    ```  
    Run `02_sycl_migrated` on CPU.
    ```
-   export ONEAPI_DEVICE_SELECTOR=cpu
+   export ONEAPI_DEVICE_SELECTOR=opencl:cpu
    make run
    unset ONEAPI_DEVICE_SELECTOR 
    ```
